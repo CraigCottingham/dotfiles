@@ -9,3 +9,5 @@
 	user = CraigCottingham
 [alias]
   lol = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[mergetool]
+	keepBackup = true
