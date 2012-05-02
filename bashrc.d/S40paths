@@ -6,12 +6,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X1
 # if [ -d /Developer/usr/bin ]; then
 #     export PATH=/Developer/usr/bin:$PATH
 # fi
-if [ -n "$JAVA_HOME" ]; then
-    if [ -d $JAVA_HOME/bin ]; then
-        export PATH=$JAVA_HOME/bin:$PATH
-    fi
-fi
-export PATH=$HOME/bin:$PATH
+# export PATH=$HOME/bin:$PATH
 
 export MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
 
