@@ -12,13 +12,13 @@ include = "{$include,$myExtraIncludes}"
 # Hide log, vendor and tmp directories from search popups.
 #
 myExtraExcludes = "log,vendor,tmp"
-excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
-excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
+excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}"
+excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
 
 # If you also want to hide them from your project manager pane, add
 # the following line to your project's local .tm_properties.
 #
-# excludeInBrowser      = "{$excludeInBrowser,log,vendor,tmp}" 
+# excludeInBrowser      = "{$excludeInBrowser,log,vendor,tmp}"
 
 # Configure git and hg
 #
@@ -50,6 +50,14 @@ tabSize          = 2
 [ source.python ]
 softTabs         = true
 tabSize          = 4
+
+[ text.html.erb ]
+softTabs         = true
+tabSize          = 2
+
+[ text.xml ]
+softTabs         = true
+tabSize          = 2
 
 [ "{README,INSTALL,LICENSE,TODO}" ]
 fileType         = "text.plain"
