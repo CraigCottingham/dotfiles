@@ -1,0 +1,4 @@
+#!/bin/bash
+# final paths
+
+export PATH=$HOME/bin:$PATH
