@@ -13,10 +13,6 @@ fi
 
 # load other stuff that hasn't yet been ported to individual init files
 
-# ** only for HRWorX development, and State of MN specifically
-export CVS_RSH=ssh
-export CVSROOT=:ext:resweb:/home/cvs/cvsroot
-
 if [[ -f /etc/bashrc ]]; then
     . /etc/bashrc
 fi
@@ -25,18 +21,3 @@ fi
 if [[ "$PS1" ]]; then
     PS1='\u@\h:\w\$ '
 fi
-
-# RVM support
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
-    . $HOME/.rvm/scripts/rvm
-fi
-
-# function for switching between multiple RVM installs -- useful for developing RVM
-if [[ -s $HOME/.rvm/scripts/functions/developer ]]; then
-    . $HOME/.rvm/scripts/functions/developer
-fi
-
-# bash autocompletion for rvm
-complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
