@@ -2,12 +2,5 @@
 # paths
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
-
-# if [ -d /Developer/usr/bin ]; then
-#     export PATH=/Developer/usr/bin:$PATH
-# fi
-# export PATH=$HOME/bin:$PATH
-
 export MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
-
 export INFOPATH=/usr/share/info
