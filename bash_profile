@@ -15,6 +15,4 @@ fi
 # bash autocompletion for rvm
 complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
