@@ -1,5 +1,7 @@
 #!/bin/bash
 # setup for Java development
 
-export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home
+if [[ -d /System/Library/Java/JavaVirtualMachines/1.6.0.jdk ]]; then
+	export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+	# export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home
+fi
