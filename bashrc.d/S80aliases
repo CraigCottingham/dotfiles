@@ -21,3 +21,5 @@ alias grep="grep --color=auto"
 alias netlisten="netstat -naf inet | grep LISTEN"
 alias psgrep="ps axwww | grep"
 alias top="top -F -R -o cpu -s 2"
+
+if [[ -n `which hub` ]]; then alias git='hub'; fi
