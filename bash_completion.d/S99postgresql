@@ -1,0 +1,172 @@
+# Lifted from homebrew's postgresql completion script.
+
+type psql && {
+_pg_databases()
+{
+    # -w was introduced in 8.4, https://launchpad.net/bugs/164772
+    # "Access privileges" in output may contain linefeeds, hence the NF > 1
+    COMPREPLY=( $( compgen -W "$( psql -AtqwlF $'\t' 2>/dev/null | \
+        awk 'NF > 1 { print $1 }' )" -- "$cur" ) )
+}
+
+_pg_users()
+{
+    # -w was introduced in 8.4, https://launchpad.net/bugs/164772
+    COMPREPLY=( $( compgen -W "$( psql -Atqwc 'select usename from pg_user' \
+        template1 2>/dev/null )" -- "$cur" ) )
+    [ ${#COMPREPLY[@]} -eq 0 ] && COMPREPLY=( $( compgen -u -- "$cur" ) )
+}
+
+# pg_dump(1) completion
+#
+_pg_dump()
+{
+    local cur prev split=false
+
+    COMPREPLY=()
+    _get_comp_words_by_ref cur prev
+
+    _split_longopt && split=true
+
+    case $prev in
+        -h|--host)
+            _known_hosts_real "$cur"
+            return 0
+            ;;
+        -S|--superuser|-U|--username)
+            _pg_users
+            return 0
+            ;;
+        -f|--file)
+            _filedir
+            return 0
+            ;;
+        -E|--encoding|-F|--format|-n|--schema|-N|--exclude-schema|-t|--table|-T|--exclude-table|\
+        -Z|--compress|--lock-wait-timeout|-p|--port|--role)
+            # argument required but no completions available
+            return 0
+            ;;
+        -a|--data-only|-b|--blobs|-c|--clean|-C|--create|-i|--ignore-version|-o|--oids|-O|--no-owner|\
+        -R|--no-reconnect|-s|--schema-only|-v|--verbose|-x|--no-privileges|--no-acl|--binary-upgrade|\
+        --column-inserts|--attribute-inserts|--disable-dollar-quoting|--disable-triggers|--inserts|\
+        --no-security-labels|--no-tablespaces|--no-unlogged-table-data|--quote-all-identifiers|\
+        --serializable-deferrable|--use-set-session-authorization|-w|--no-password|-W|--password|\
+        -\?|--help|-V|--version)
+            # all other arguments are noop with these
+            return 0
+            ;;
+    esac
+
+    $split && return 0
+
+    if [[ "$cur" == -* ]]; then
+        # return list of available options
+        COMPREPLY=( $( compgen -W '--host --superuser --username --file \
+            --encoding --format --schema --exclude-schema --table \
+            --exclude-table --compress --lock-wait-timeout --port --role --data-only --blobs \
+            --clean --create --ignore-version --oids \
+            --no-owner --no-reconnect --schema-only --verbose --no-privileges --no-acl \
+            --binary-upgrade --column-inserts --attribute-inserts --disable-dollar-quoting \
+            --disable-triggers --inserts --no-security-labels --no-tablespaces -- no-unlogged-table-data \
+            --quote-all-identifiers --serializable-deferrable --use-set-session-authorization \
+            --no-password --password --help --version' -- "$cur" ) )
+    else
+        # return list of available databases
+        _pg_databases
+    fi
+}
+complete -F _pg_dump pg_dump
+
+# pg_restore(1) completion
+#
+_pg_restore()
+{
+    local cur prev split=false
+
+    COMPREPLY=()
+    _get_comp_words_by_ref cur prev
+
+    _split_longopt && split=true
+
+    case $prev in
+        -h|--host)
+            _known_hosts_real "$cur"
+            return 0
+            ;;
+        -S|--superuser|-U|--username)
+            _pg_users
+            return 0
+            ;;
+        -d|--dbname)
+            _pg_databases
+            return 0
+            ;;
+        -f|--file|-L|--use-list)
+            _filedir
+            return 0
+            ;;
+        -F|--format|-I|--index|-j|--jobs|-n|--schema|-p|--port|-t|--table|-T|--trigger|--role)
+            # argument required but no completions available
+            return 0
+            ;;
+        -a|--data-only|-c|--clean|-C|--create|--disable-triggers|-i|--ignore-version|-l|--list|\
+        -O|--no-owner|-R|--no-reconnect|-s|--schema-only|-v|--verbose|-x|--no-privileges|--no-acl|\
+        --no-data-for-failed-tables|--no-security-labels|--no-tablespaces|--use-set-session-authorization|\
+        -1|--single-transaction|-w|--no-password|-W|--password|-\?|--help|-V|--version)
+            # all other arguments are noop with these
+            return 0
+            ;;
+    esac
+
+    $split && return 0
+
+    if [[ "$cur" == -* ]]; then
+        # return list of available options
+        COMPREPLY=( $( compgen -W '--host --superuser --username --dbname \
+            --file --use-list --format --index --jobs \
+            --schema --port --table --trigger --role --data-only --clean \
+            --create --disable-triggers --ignore-version --list \
+            --no-owner --no-reconnect --schema-only --verbose --no-privileges --no-acl \
+            --no-data-for-failed-tables --no-security-labels --no-tablespaces --use-set-session-authorization \
+            --single-transaction --no-password --password --help --version' -- "$cur" ) )
+    else
+        # return list of available databases
+        _filedir
+    fi
+}
+complete -F _pg_restore pg_restore
+
+}
+
+# pg_dump -U deploy -Fc -c -O -v -- $FROM_DATABASE | pg_restore -U deploy -d $TO_DATABASE -Fc -c -O -v
+_pg_copy()
+{
+  local cur prev split=false
+
+  COMPREPLY=()
+  _get_comp_words_by_ref cur prev
+
+  _split_longopt && split=false
+
+  case $prev in
+    -h|--host)
+      _known_hosts_real "$cur"
+      return 0
+      ;;
+    -S|--superuser|-U|--username)
+      _pg_users
+      return 0
+      ;;
+  esac
+
+  $split && return 0
+
+  if [[ "$cur" == -* ]]; then
+    # return list of available options
+    COMPREPLY=( $( compgen -W '--host --superuser --username' -- "$cur" ) )
+  else
+    # return list of available databases
+    _pg_databases
+  fi
+}
+complete -F _pg_copy pg_copy
