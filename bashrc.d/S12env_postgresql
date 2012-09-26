@@ -2,3 +2,6 @@
 # environment variables for PostgreSQL
 
 export PGHOST=localhost
+if [[ -d $HOME/Applications/Postgres.app ]]; then
+  export POSTGRESQPP_HOME=$HOME/Applications/Postgres.app
+fi

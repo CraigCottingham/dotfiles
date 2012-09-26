@@ -1,6 +1,8 @@
 #!/bin/bash
 # paths for PostgreSQL
 
-if [[ -d /Applications/Postgres.app ]]; then
-    export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+if [[ -n "$POSTGRESAPP_HOME" ]]; then
+  if [[ -d $POSTGRESAPP_HOME/Contents/MacOS/bin ]]; then
+    export PATH=$POSTGRESAPP_HOME/Contents/MacOS/bin:$PATH
+  fi
 fi

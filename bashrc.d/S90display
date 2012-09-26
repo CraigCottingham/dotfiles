@@ -3,10 +3,10 @@
 
 if [[ "$PS1" ]]; then
     # running interactively, so the rest of this makes sense
-    
+
     # fix the backspace and forward delete keys?
     stty erase   # there's a ^H at the end of this line
-    
+
     # enable color support of ls
     export LS_COLORS='no=00:fi=00:di=00;33:ln=00;36:pi=00;35:so=00;35:bd=00;37:cd=00;37:or=01;33;41:'
 
