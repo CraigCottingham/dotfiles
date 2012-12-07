@@ -21,3 +21,5 @@ fi
 if [[ "$PS1" ]]; then
     PS1='\u@\h:\w\$ '
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
