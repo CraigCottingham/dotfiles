@@ -1,7 +1,10 @@
 #!/bin/bash
 # environment variables for PostgreSQL
 
-export PGHOST=localhost
-if [[ -d $HOME/Applications/Postgres.app ]]; then
-  export POSTGRESQPP_HOME=$HOME/Applications/Postgres.app
+# export PGHOST=localhost
+if [[ -d /Applications/Postgres.app ]]; then
+  export POSTGRES_HOME=/Applications/Postgres.app/Contents/MacOS
+fi
+if [[ -e /usr/local/bin/postgres ]]; then
+  export POSTGRES_HOME=/usr/local
 fi
