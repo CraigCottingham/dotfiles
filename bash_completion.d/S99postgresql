@@ -1,6 +1,6 @@
 # Lifted from homebrew's postgresql completion script.
 
-type psql && {
+$(type psql > /dev/null) && {
 _pg_databases()
 {
     # -w was introduced in 8.4, https://launchpad.net/bugs/164772
