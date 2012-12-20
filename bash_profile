@@ -13,6 +13,7 @@ if [[ -s $HOME/.rvm/scripts/functions/developer ]]; then
 fi
 
 # bash autocompletion for rvm
-complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm
+# complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
