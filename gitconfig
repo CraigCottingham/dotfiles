@@ -3,8 +3,6 @@
 	email = craig@nexushq.com
 [core]
 	excludesfile = /Users/craigc/.gitignore
-	autocrlf = input
-	safecrlf = true
 [github]
 	user = CraigCottingham
 [alias]
