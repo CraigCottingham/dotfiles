@@ -1,12 +1,6 @@
 #!/bin/bash
 # aliases
 
-# aliases for GNU utilities, which Macports prefixes with "g"
-# if [[ -n `which gdu` ]]; then alias du='gdu'; fi
-# if [[ -n `which gfind` ]]; then alias find='gfind'; fi
-# if [[ -n `which gls` ]]; then alias ls='gls --color=auto'; fi
-# if [[ -n `which gmd5sum` ]]; then alias md5sum='gmd5sum'; fi
-
 # EOL corrections -- Mac (<CR>,\r); Unix (<LF>,\n); Win (<CRLF>,\r\n)
 alias mac2unix="perl -pi -e 's/\r/\n/g'"
 alias unix2mac="perl -pi -e 's/\n/\r/g'"

@@ -11,8 +11,8 @@ fi
 
 # load individual config files
 if [[ -d ~/.bash_completion.d ]]; then
-    for file in $(/bin/ls ~/.bash_completion.d/S*); do
-        # echo "loading $file"
-        . "$file"
-    done
+  for file in $(/bin/ls ~/.bash_completion.d/S*); do
+    # echo "loading $file"
+    . "$file"
+  done
 fi
