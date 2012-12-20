@@ -1,14 +1,18 @@
 #!/bin/bash
 # bash tab completion support
 
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+if [[ -f /etc/bash_completion ]]; then
+  . /etc/bash_completion
 fi
-if [ -f $HOME/.bash_completion ]; then
-    . $HOME/.bash_completion
+
+if [[ -f $HOME/.bash_completion ]]; then
+  . $HOME/.bash_completion
 fi
-# complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
-# complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,s]+/)[1..-1].reject{|host| host.match(/*|?/)} if $_.match(/^s*Hosts+/);' < $HOME/.ssh/config)" scp sftp ssh
-if [[ -f $HOME/.ssh/config ]]; then
-    complete -o default -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
+
+# load individual config files
+if [[ -d ~/.bash_completion.d ]]; then
+    for file in $(/bin/ls ~/.bash_completion.d/S*); do
+        # echo "loading $file"
+        . "$file"
+    done
 fi

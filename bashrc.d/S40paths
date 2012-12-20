@@ -1,15 +1,20 @@
 #!/bin/bash
 # paths
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
+MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
+INFOPATH=/usr/share/info
 
-if [ -n "$JAVA_HOME" ]; then
-    if [ -d $JAVA_HOME/bin ]; then
-        export PATH=$JAVA_HOME/bin:$PATH
-    fi
+GNUBIN="$(brew --prefix coreutils)/libexec/gnubin"
+if [[ -d $GNUBIN ]]; then
+  PATH="$GNUBIN:$PATH"
 fi
-export PATH=$HOME/bin:$PATH
 
-export MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
+GNUMAN="$(brew --prefix coreutils)/libexec/gnuman"
+if [[ -d $GNUMAN ]]; then
+  MANPATH="$GNUMAN:$MANPATH"
+fi
 
-export INFOPATH=/usr/share/info
+export PATH
+export MANPATH
+export INFOPATH

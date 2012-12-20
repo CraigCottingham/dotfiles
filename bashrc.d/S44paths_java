@@ -1,0 +1,8 @@
+#!/bin/bash
+# paths for Java
+
+if [[ -n "$JAVA_HOME" ]]; then
+    if [[ -d $JAVA_HOME/bin ]]; then
+        export PATH=$JAVA_HOME/bin:$PATH
+    fi
+fi
