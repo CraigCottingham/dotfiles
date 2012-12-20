@@ -8,3 +8,6 @@ fi
 if [[ -e /usr/local/bin/postgres ]]; then
   export POSTGRES_HOME=/usr/local
 fi
+if [[ -e /usr/local/pgsql/bin/postgres ]]; then
+  export POSTGRES_HOME=/usr/local/pgsql
+fi
