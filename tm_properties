@@ -3,6 +3,8 @@
 fontName         = "Anonymous Pro"
 fontSize         = 12
 
+windowTitle = "${TM_DIRECTORY/\A(?:\/Users\/craigc\/(?:Development|Projects)\/([^\/]+).*|(.+))\z/${2:?${2/\/Users\/craigc/~/}:${1/\A(?=.)//}}/} - ${TM_DIRECTORY/\A(?:\/Users\/craigc\/(?:Development|Projects)\/[^\/]+\/(.*)|(.+))\z/${2:?:${1/\A(?=.)//}/}/}$TM_DISPLAYNAME"
+
 # Extra files to include
 #
 myExtraIncludes = ".tm_properties,.htaccess,.gitignore"
