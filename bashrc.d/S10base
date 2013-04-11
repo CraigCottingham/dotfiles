@@ -1,0 +1,28 @@
+#!/bin/bash
+# environment variables used by everything
+
+export EDITOR=vi
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LESS="--hilite-search --tabs=4"
+export RSYNC_RSH=ssh
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
+export MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
+export INFOPATH=/usr/share/info
+
+if [[ `type -path brew` ]]; then
+  GNUBIN="$(brew --prefix coreutils)/libexec/gnubin"
+  if [[ -d $GNUBIN ]]; then
+    PATH="$GNUBIN:$PATH"
+  fi
+  GNUMAN="$(brew --prefix coreutils)/libexec/gnuman"
+  if [[ -d $GNUMAN ]]; then
+    MANPATH="$GNUMAN:$MANPATH"
+  fi
+fi
+
+export PATH
+export MANPATH
+export INFOPATH

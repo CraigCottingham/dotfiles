@@ -1,0 +1,20 @@
+#!/bin/bash
+# paths for Amazon Web Services (AWS)
+
+if [[ -d "$HOME/ec2" ]]; then
+  export EC2_HOME="$HOME/ec2"
+  export EC2_PRIVATE_HOME="$HOME/.ec2"
+fi
+
+if [[ -n "$EC2_HOME" ]]; then
+  if [[ -d $EC2_HOME/bin ]]; then
+    export PATH=$EC2_HOME/bin:$PATH
+  fi
+fi
+
+if [[ -d "$EC2_PRIVATE_HOME" ]]; then
+  export EC2_CERT="$EC2_PRIVATE_HOME/cert-2HAZZQKA4SXQ4C5QKT4WNE7NOJOKZGZ4.pem"
+  export EC2_PRIVATE_KEY="$EC2_PRIVATE_HOME/pk-2HAZZQKA4SXQ4C5QKT4WNE7NOJOKZGZ4.pem"
+  export EC2_KEYPAIR="$EC2_PRIVATE_HOME/id_rsa-ec2-craigc-us-east-1-keypair"
+  export EC2_KEYPAIR_NAME="ec2-craigc-us-east-1-keypair"
+fi

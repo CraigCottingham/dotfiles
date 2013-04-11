@@ -2,5 +2,5 @@
 # paths for Python
 
 if [[ -d /usr/local/share/python ]]; then
-    export PATH=/usr/local/share/python:$PATH
+  export PATH=/usr/local/share/python:$PATH
 fi

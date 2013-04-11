@@ -1,8 +1,0 @@
-#!/bin/bash
-# paths for PostgreSQL
-
-if [[ -n "$POSTGRES_HOME" ]]; then
-  if [[ -d $POSTGRES_HOME/bin ]]; then
-    export PATH=$POSTGRES_HOME/bin:$PATH
-  fi
-fi

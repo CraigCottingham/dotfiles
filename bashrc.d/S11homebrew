@@ -1,0 +1,13 @@
+#!/bin/bash
+# environment variables for Homebrew
+
+if [[ `type -path brew` ]]; then
+  GNUBIN="$(brew --prefix coreutils)/libexec/gnubin"
+  if [[ -d $GNUBIN ]]; then
+    export PATH="$GNUBIN:$PATH"
+  fi
+  GNUMAN="$(brew --prefix coreutils)/libexec/gnuman"
+  if [[ -d $GNUMAN ]]; then
+    export MANPATH="$GNUMAN:$MANPATH"
+  fi
+fi
