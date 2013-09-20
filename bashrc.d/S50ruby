@@ -1,7 +1,7 @@
 #!/bin/bash
 # setup for Ruby
 
-export RUBYLIB=$HOME/lib/ruby
+# export RUBYLIB=$HOME/lib/ruby
 
 # export GEMDIR=`gem env gemdir`
 gemdir() {
