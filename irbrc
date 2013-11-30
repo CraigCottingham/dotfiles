@@ -7,8 +7,6 @@ def load_irbrc(path)
 end
 
 require 'irb/completion'
-require 'map_by_method'
-require 'what_methods'
 require 'pp'
 
 begin
@@ -16,6 +14,7 @@ begin
   Hirb.enable
 rescue Exception => e
   # Gracefully ignore problems loading Hirb
+  puts "exception requiring and/or enabling Hirb: #{e}"
 end
 
 IRB.conf[:AUTO_INDENT] = true
