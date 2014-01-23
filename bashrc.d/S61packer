@@ -1,0 +1,6 @@
+#!/bin/bash
+# setup for Packer
+
+if [[ -d "$HOME/packer" ]]; then
+	export PATH=$HOME/packer:$PATH
+fi
