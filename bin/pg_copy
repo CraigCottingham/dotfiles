@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby -wKU
+
+(@from_spec, @to_spec) = ARGV
+
+if @from_spec.match(/^([^:]+):(.+)$/) { | md | @from_server = md[1]; @from_db = md[2] }
+  @from = "ssh #{@from_server} 'pg_dump -Fc -c -O -v -- #{@from_db}'"
+else
+  @from = "pg_dump -Fc -c -O -v -- #{@from_spec}"
+end
+
+if @to_spec.match(/^([^:]+):(.+)$/) { | md | @to_server = md[1]; @to_db = md[2] }
+  @to = "ssh #{@to_server} 'pg_restore -Fc -c -O -v -d #{@to_db}'"
+else
+  @to = "pg_restore -Fc -c -O -v -d #{@to_spec}"
+end
+
+puts "#{@from} | #{@to}"
+system "#{@from} | #{@to}"

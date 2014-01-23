@@ -5,6 +5,7 @@
 home = File.expand_path('~')
 
 Dir['*'].each do | file |
+  next if file =~ /bin/
   next if file =~ /install/
   target = File.join(home, ".#{file}")
   next if File.exists?(target)
