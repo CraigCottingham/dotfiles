@@ -9,12 +9,14 @@ end
 require 'irb/completion'
 require 'pp'
 
-begin
-  require 'hirb'
-  Hirb.enable
-rescue Exception => e
-  # Gracefully ignore problems loading Hirb
-  puts "exception requiring and/or enabling Hirb: #{e}"
+unless $DEBUG
+  begin
+    require 'hirb'
+    Hirb.enable
+  rescue Exception => e
+    # Gracefully ignore problems loading Hirb
+    puts "exception requiring and/or enabling Hirb: #{e}"
+  end
 end
 
 IRB.conf[:AUTO_INDENT] = true
