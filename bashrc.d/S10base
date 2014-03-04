@@ -3,7 +3,7 @@
 
 export EDITOR=vi
 if [[ -e $HOME/bin/mate ]]; then
-  export EDITOR=mate
+  export EDITOR="mate -w"
 fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
