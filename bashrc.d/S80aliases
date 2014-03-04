@@ -16,6 +16,10 @@ alias ls="ls --color=auto"
 alias netlisten="netstat -naf inet | grep LISTEN"
 alias psgrep="ps axwww | grep"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
-alias top="top -F -R -o cpu -s 2"
+
+## OS X-specific aliases
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias top="top -F -R -o cpu -s 2"
+fi
 
 if [[ `type -path hub` ]]; then alias git='hub'; fi
