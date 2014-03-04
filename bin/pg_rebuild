@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+(database, dump_filename, *options) = ARGV
+
+puts "dropdb #{database}"
+system "dropdb #{database}"
+
+puts "createdb #{database}"
+system "createdb #{database}"
+
+puts "pg_restore -Fc -c -O -v -x -d #{database} -j 6 -- #{dump_filename}"
+system "pg_restore -Fc -c -O -v -x -d #{database} -j 6 -- #{dump_filename}"
+
+puts "growlnotify -s -m '#{database} restored'"
+system "growlnotify -s -m '#{database} restored'"
