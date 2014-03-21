@@ -1,0 +1,11 @@
+#!/bin/bash
+# git shell functions
+
+fetch-pr() {
+    git fetch upstream +refs/pull/$1/head:refs/remotes/upstream-pr/$1
+}
+
+checkout-pr() {
+    fetch-pr $1
+    git checkout -b pr/$1 upstream-pr/
+}
