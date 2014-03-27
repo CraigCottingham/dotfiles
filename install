@@ -2,11 +2,17 @@
 
 # from http://errtheblog.com/posts/89-huba-huba, with local mods
 
-home = File.expand_path('~')
+require 'fileutils'
 
-Dir['*'].each do | file |
-  next if file =~ /\A(bin|install|README.md)\z/
+home = File.expand_path "~"
+
+Dir["*"].each do | file |
+  next if %w( bin install README.md ).include?(file)
+
   target = File.join(home, ".#{file}")
-  next if File.exists?(target)
-  `ln -s #{File.expand_path file} #{target}`
+  if File.exists?(target) && !File.symlink?(target)
+    FileUtils.cp target, "#{target}.saved"
+  end
+
+  FileUtils.ln_s File.expand_path(file), target, :force => true
 end
