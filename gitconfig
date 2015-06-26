@@ -1,18 +1,53 @@
 [user]
 	name = Craig S. Cottingham
-	email = craig@nexushq.com
+	email = craig.cottingham@gmail.com
 [core]
 	excludesfile = /Users/craigc/.gitignore
 	trustctime = false
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = vi
+  quotepath = false
 [github]
 	user = CraigCottingham
 [alias]
   lol = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   pr = pull-request
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  df = diff
+  lg = log -300 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  changes = diff --name-status -r
+  amend = commit --amend -C HEAD
+  wip = commit -am "wip"
+[merge]
+	tool = Kaleidoscope
 [mergetool]
 	keepBackup = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	prompt = false
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[apply]
+  whitespace = fix
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  ui = true
+  interactive = auto
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[push]
+  default = tracking
+[credential]
+	helper = osxkeychain
