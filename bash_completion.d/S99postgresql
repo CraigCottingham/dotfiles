@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # Lifted from homebrew's postgresql completion script.
 
 if [[ -n `which psql` ]]; then
