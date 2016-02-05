@@ -2,5 +2,6 @@
 # final paths
 
 if [[ -d "$HOME/bin" ]]; then
-	export PATH=$HOME/bin:$HOME/.dotfiles/bin:$PATH
+	path_prepend PATH $HOME/.dotfiles/bin
+	path_prepend PATH $HOME/bin
 fi

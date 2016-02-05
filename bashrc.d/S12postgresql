@@ -10,8 +10,4 @@ elif [[ -e /usr/local/pgsql/bin/postgres ]]; then
   export POSTGRES_HOME=/usr/local/pgsql
 fi
 
-if [[ -n "$POSTGRES_HOME" ]]; then
-  if [[ -d $POSTGRES_HOME/bin ]]; then
-    export PATH=$POSTGRES_HOME/bin:$PATH
-  fi
-fi
+[[ -n "$POSTGRES_HOME" ]] && [[ -d $POSTGRES_HOME/bin ]] && path_prepend PATH $POSTGRES_HOME/bin

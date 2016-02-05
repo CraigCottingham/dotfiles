@@ -19,13 +19,3 @@ _gemdocomplete() {
     return 0
 }
 complete -o default -o nospace -F _gemdocomplete gemdoc
-
-_mategem() {
-    local curw
-    COMPREPLY=()
-    curw=${COMP_WORDS[COMP_CWORD]}
-    local gems="$(gemdir)/gems"
-    COMPREPLY=($(compgen -W '$(ls $gems)' -- $curw));
-    return 0
-}
-complete -F _mategem -o dirnames mategem

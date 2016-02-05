@@ -2,15 +2,28 @@
 # environment variables used by everything
 
 export EDITOR=vi
-if [[ -e $HOME/bin/mate ]]; then
-  export EDITOR="mate -w"
-fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LESS="--hilite-search --tabs=4 -R"
 export RSYNC_RSH=ssh
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
-export MANPATH=$HOME/man:/usr/local/share/man:/usr/share/man:/usr/local/man
-export INFOPATH=/usr/share/info
+[[ -z "$PATH" ]] && export PATH=
+[[ -d /sbin ]] && path_prepend PATH /sbin
+[[ -d /bin ]] && path_prepend PATH /bin
+[[ -d /usr/sbin ]] && path_prepend PATH /usr/sbin
+[[ -d /usr/bin ]] && path_prepend PATH /usr/bin
+[[ -d /usr/local/sbin ]] && path_prepend PATH /usr/local/sbin
+[[ -d /usr/local/bin ]] && path_prepend PATH /usr/local/bin
+[[ -d $HOME/bin ]] && path_prepend PATH $HOME/bin
+[[ -d /usr/X11R6/bin ]] && path_append PATH /usr/X11R6/bin
+
+[[ -z "$MANPATH" ]] && export MANPATH=
+[[ -d /usr/share/man ]] && path_prepend MANPATH /usr/share/man
+[[ -d /usr/local/share/man ]] && path_prepend MANPATH /usr/local/share/man
+[[ -d $HOME/man ]] && path_prepend MANPATH $HOME/man
+
+[[ -z "$INFOPATH" ]] && export INFOPATH=
+[[ -d /usr/share/info ]] && path_prepend INFOPATH /usr/share/info
+[[ -d /usr/local/share/info ]] && path_prepend INFOPATH /usr/local/share/info
+[[ -d $HOME/info ]] && path_prepend INFOPATH $HOME/info
