@@ -38,4 +38,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 rvm use `rvm current 2> /dev/null` 2> /dev/null
 
 ## load direnv
-eval "$(direnv hook $0)"
+#eval "$(direnv hook $0)"
