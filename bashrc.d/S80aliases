@@ -22,4 +22,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias top="top -F -R -o cpu -s 2"
 fi
 
+alias crspec="COV=true rspec"
+
 if [[ `type -path hub` ]]; then alias git='hub'; fi
