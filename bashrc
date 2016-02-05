@@ -6,7 +6,6 @@
 # load individual init files
 if [[ -d ~/.bashrc.d ]]; then
   for file in $(/bin/ls ~/.bashrc.d/S*); do
-    # echo "loading $file"
     source "$file"
   done
 fi
@@ -15,11 +14,6 @@ fi
 
 if [[ -f /etc/bashrc ]]; then
   source /etc/bashrc
-fi
-
-# can't be in a sub-init, because that's in a subshell?
-if [[ "$PS1" ]]; then
-  PS1='\u@\h:\w\$ '
 fi
 
 # load RVM
