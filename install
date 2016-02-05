@@ -2,7 +2,7 @@
 
 # from http://errtheblog.com/posts/89-huba-huba, with local mods
 
-require 'fileutils'
+require "fileutils"
 
 home = File.expand_path "~"
 
@@ -14,5 +14,5 @@ Dir["*"].each do | file |
     FileUtils.cp target, "#{target}.saved"
   end
 
-  FileUtils.ln_s File.expand_path(file), target, :force => true
+  FileUtils.ln_s File.expand_path(file), target, force: true
 end

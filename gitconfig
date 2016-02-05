@@ -1,4 +1,3 @@
-[user]
 [core]
 	excludesfile = /Users/craigc/.gitignore
 	trustctime = false

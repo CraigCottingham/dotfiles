@@ -1,17 +1,17 @@
 # load_irbrc method from http://samuelmullen.com/2010/04/irb-global-local-irbrc/
 def load_irbrc(path)
-  return if (path == ENV["HOME"]) || (path == '/')
+  return if (path == ENV["HOME"]) || (path == "/")
   load_irbrc(File.dirname path)
   irbrc = File.join(path, ".irbrc")
   load irbrc if File.exist?(irbrc)
 end
 
-require 'irb/completion'
-require 'pp'
+require "irb/completion"
+require "pp"
 
 unless $DEBUG
   begin
-    require 'hirb'
+    require "hirb"
     Hirb.enable
   rescue Exception => e
     # Gracefully ignore problems loading Hirb
