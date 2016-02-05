@@ -1,6 +1,4 @@
 [user]
-	name = Craig S. Cottingham
-	email = craig.cottingham@gmail.com
 [core]
 	excludesfile = /Users/craigc/.gitignore
 	trustctime = false
@@ -51,3 +49,6 @@
   default = tracking
 [credential]
 	helper = osxkeychain
+[user]
+	email = craig@cottingham.net
+	name = Craig S. Cottingham
