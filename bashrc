@@ -12,24 +12,15 @@ fi
 
 # load other stuff that hasn't yet been ported to individual init files
 
-if [[ -f /etc/bashrc ]]; then
-  source /etc/bashrc
-fi
+[[ -r /etc/bashrc ]] && . /etc/bashrc
 
 # load RVM
 
 # function for switching between multiple RVM installs -- useful for developing RVM
-if [[ -s $HOME/.rvm/scripts/functions/developer ]]; then
-  source $HOME/.rvm/scripts/functions/developer
-fi
+[[ -r $HOME/.rvm/scripts/functions/developer ]] && . $HOME/.rvm/scripts/functions/developer
 
-# bash autocompletion for rvm
-# complete -C $rvm_scripts_path/rvm-completion.rb -o default rvm
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
 
 rvm use `rvm current 2> /dev/null` 2> /dev/null
-
-## load direnv
-#eval "$(direnv hook $0)"
