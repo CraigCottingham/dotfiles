@@ -1,6 +1,0 @@
-#!/bin/bash
-# git shell functions
-
-function fetch-pr() { git fetch upstream +refs/pull/$1/head:refs/remotes/upstream-pr/$1; }
-function checkout-pr() { fetch-pr $1; git checkout -b pr/$1 upstream-pr/$1; }
-function delete-pr() { git branch -D pr/$1; git branch -Dr upstream-pr/$1; }

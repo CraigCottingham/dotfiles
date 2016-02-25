@@ -18,6 +18,11 @@
   changes = diff --name-status -r
   amend = commit --amend -C HEAD
   wip = commit -am "wip"
+
+	fetch-pr = !"f() { git fetch upstream +refs/pull/$1/head:refs/remotes/origin/pr/$1; }; f"
+	checkout-pr = !"f() { git fetch upstream +refs/pull/$1/head:refs/remotes/origin/pr/$1; git checkout -b pr/$1 origin/pr/$1; }; f"
+	delete-pr = !"f() { git branch -D pr/$1; git branch -Dr origin/pr/$1; }; f"
+	
 [merge]
 	tool = Kaleidoscope
 [mergetool]
