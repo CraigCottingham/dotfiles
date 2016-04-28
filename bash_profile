@@ -8,3 +8,5 @@
 [[ -r $HOME/.bashrc ]] && . $HOME/.bashrc
 
 [[ -n "$PS1" ]] && PS1='\u@\h:\w\$ '
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

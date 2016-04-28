@@ -9,6 +9,9 @@ home = File.expand_path "~"
 Dir["*"].each do | file |
   next if %w( bin install README.md ).include?(file)
 
+  ## need to properly handle directories, that are already linked?
+  ## currently, running this in ~/.dotfiles is adding a symlink inside each directory (that isn't `bin`)
+  
   target = File.join(home, ".#{file}")
   if File.exists?(target) && !File.symlink?(target)
     FileUtils.cp target, "#{target}.saved"
