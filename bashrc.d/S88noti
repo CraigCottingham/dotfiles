@@ -1,0 +1,10 @@
+#!/bin/bash
+# environment variables used by noti
+
+export NOTI_DEFAULT="banner speech slack"
+export NOTI_SLACK_TOK="xoxp-2533894885-2533903011-30229377303-29966b0b4f"
+export NOTI_SLACK_DEST="@craigc"
+# See /System/Library/Sounds for available sounds.
+export NOTI_SOUND=
+export NOTI_SOUND_FAIL=Basso
+export NOTI_VOICE=Samantha
