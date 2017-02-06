@@ -24,4 +24,6 @@ fi
 
 alias crspec="COV=true rspec"
 
-if [[ `type -path hub` ]]; then alias git='hub'; fi
+if [[ "`type -p hub`" != "" ]]; then alias git="`type -p hub`"; fi
+
+if [[ "`type -p mono`" != "" ]]; then alias ckan="`type -p mono` ~/Applications/ckan.exe"; fi
