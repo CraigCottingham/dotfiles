@@ -10,4 +10,6 @@ elif [[ -e /usr/local/pgsql/bin/postgres ]]; then
   export POSTGRES_HOME=/usr/local/pgsql
 fi
 
+[[ -n "$POSTGRES_HOME" ]] && export PGOPTIONS='--client-min-messages=WARNING'
+
 [[ -n "$POSTGRES_HOME" ]] && [[ -d $POSTGRES_HOME/bin ]] && path_prepend PATH $POSTGRES_HOME/bin
