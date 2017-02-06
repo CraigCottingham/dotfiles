@@ -3,4 +3,4 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-shell_session_update
+#shell_session_update

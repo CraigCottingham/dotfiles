@@ -23,4 +23,4 @@ fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
 
-rvm use `rvm current 2> /dev/null` 2> /dev/null
+#rvm use `rvm current 2> /dev/null` 2> /dev/null
