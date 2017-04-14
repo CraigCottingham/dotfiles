@@ -14,6 +14,9 @@ fi
 
 [[ -r /etc/bashrc ]] && . /etc/bashrc
 
+## Kill Spring. Kill it with fire!
+export DISABLE_SPRING=1
+
 # load RVM
 
 # function for switching between multiple RVM installs -- useful for developing RVM
