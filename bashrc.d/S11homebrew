@@ -11,3 +11,8 @@ if command -v brew > /dev/null; then
     path_prepend MANPATH $GNUMAN
   fi
 fi
+
+prefix_imagemagick="$(brew --prefix imagemagick@6)/lib/pkgconfig"
+if [[ -d $prefix_imagemagick ]]; then
+  path_append PKG_CONFIG_PATH $prefix_imagemagick
+fi

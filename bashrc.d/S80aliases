@@ -10,9 +10,10 @@ alias win2mac="perl -pi -e 's/\r\n/\r/g'"
 alias mac2win="perl -pi -e 's/\r/\r\n/g'"
 
 # other aliases
+alias a="atom"
 # alias gitprep='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
 alias grep="grep --color=auto"
-alias ls="ls --color=auto"
+alias ls="exa -hbgH --git"
 alias netlisten="netstat -naf inet | grep LISTEN"
 alias psgrep="ps axwww | grep"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
@@ -27,3 +28,8 @@ alias crspec="COV=true rspec"
 if [[ "`type -p hub`" != "" ]]; then alias git="`type -p hub`"; fi
 
 if [[ "`type -p mono`" != "" ]]; then alias ckan="`type -p mono` ~/Applications/ckan.exe"; fi
+
+if [[ -f "$HOME/bin/open-production" ]]; then alias open-production="$HOME/bin/open-production"; fi
+if [[ -f "$HOME/bin/open-staging" ]]; then alias open-staging="$HOME/bin/open-staging"; fi
+
+# alias sdbdl="curl -o hqsso.sql.gz `sentinel db-dump production --json | jq .db_dump.signed_url | sed -E 's/^\"|\"$//g'`"

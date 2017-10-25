@@ -1,0 +1,4 @@
+#!/bin/bash
+# setup for Elixir
+
+export ERL_AFLAGS="-kernel shell_history enabled"
