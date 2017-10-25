@@ -12,13 +12,13 @@
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Path to the bash it configuration
-export BASH_IT="/Users/craigc/.dotfiles/bash-it"
+# export BASH_IT="/Users/craigc/.dotfiles/bash-it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='bobby'
-export THEME_SHOW_CLOCK=false
-export THEME_SHOW_CLOCK_CHAR=false
+# export BASH_IT_THEME='bobby'
+# export THEME_SHOW_CLOCK=false
+# export THEME_SHOW_CLOCK_CHAR=false
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -28,7 +28,7 @@ export THEME_SHOW_CLOCK_CHAR=false
 # export GIT_HOSTING='git@git.domain.com'
 
 # Don't check mail when opening terminal.
-unset MAILCHECK
+# unset MAILCHECK
 
 # Change this to your console based IRC client of choice.
 # export IRC_CLIENT='irssi'
@@ -37,7 +37,7 @@ unset MAILCHECK
 # export TODO="t"
 
 # Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
+# export SCM_CHECK=true
 
 # Set Xterm/screen/Tmux title with only a short hostname.
 # Uncomment this (or set SHORT_HOSTNAME to something else),
@@ -53,4 +53,11 @@ export SCM_CHECK=true
 # export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
 # Load Bash It
-source $BASH_IT/bash_it.sh
+# source $BASH_IT/bash_it.sh
+[[ -f /Users/craigc/.sentinel/current/bin/sentinel ]] && eval "$(/Users/craigc/.sentinel/current/bin/sentinel init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/craigc/Projects/google-cloud-sdk/path.bash.inc' ]; then source '/Users/craigc/Projects/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/craigc/Projects/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/craigc/Projects/google-cloud-sdk/completion.bash.inc'; fi
