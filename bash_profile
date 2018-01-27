@@ -9,7 +9,7 @@
 
 [[ -n "$PS1" ]] && PS1='\u@\h:\w\$ '
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+[[ -e "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
