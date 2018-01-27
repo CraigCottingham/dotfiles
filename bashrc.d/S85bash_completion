@@ -1,13 +1,8 @@
 #!/bin/bash
 # bash tab completion support
 
-if [[ -f /etc/bash_completion ]]; then
-  source /etc/bash_completion
-fi
-
-if [[ -f $HOME/.bash_completion ]]; then
-  source $HOME/.bash_completion
-fi
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
+[[ -f $HOME/.bash_completion ]] && source $HOME/.bash_completion
 
 # load individual config files
 if [[ -d ~/.bash_completion.d ]]; then

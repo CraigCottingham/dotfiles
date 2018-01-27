@@ -7,10 +7,3 @@ if [[ -d "$HOME/ec2" ]]; then
 fi
 
 [[ -n "$EC2_HOME" ]] && [[ -d $EC2_HOME/bin ]] && path_prepend PATH $EC2_HOME/bin
-
-# if [[ -d "$EC2_PRIVATE_HOME" ]]; then
-#   export EC2_CERT="$EC2_PRIVATE_HOME/cert-???.pem"
-#   export EC2_PRIVATE_KEY="$EC2_PRIVATE_HOME/pk-???.pem"
-#   export EC2_KEYPAIR="$EC2_PRIVATE_HOME/id_rsa-ec2-craigc-us-east-1-keypair"
-#   export EC2_KEYPAIR_NAME="ec2-craigc-us-east-1-keypair"
-# fi

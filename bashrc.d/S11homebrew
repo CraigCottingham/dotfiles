@@ -3,16 +3,11 @@
 
 if command -v brew > /dev/null; then
   GNUBIN="$(brew --prefix coreutils)/libexec/gnubin"
-  if [[ -d $GNUBIN ]]; then
-    path_prepend PATH $GNUBIN
-  fi
-  GNUMAN="$(brew --prefix coreutils)/libexec/gnuman"
-  if [[ -d $GNUMAN ]]; then
-    path_prepend MANPATH $GNUMAN
-  fi
-fi
+  [[ -d $GNUBIN ]] && path_prepend PATH $GNUBIN
 
-prefix_imagemagick="$(brew --prefix imagemagick@6)/lib/pkgconfig"
-if [[ -d $prefix_imagemagick ]]; then
-  path_append PKG_CONFIG_PATH $prefix_imagemagick
+  GNUMAN="$(brew --prefix coreutils)/libexec/gnuman"
+  [[ -d $GNUMAN ]] && path_prepend MANPATH $GNUMAN
+
+  prefix_imagemagick="$(brew --prefix imagemagick@6)/lib/pkgconfig"
+  [[ -d $prefix_imagemagick ]] && path_append PKG_CONFIG_PATH $prefix_imagemagick
 fi
