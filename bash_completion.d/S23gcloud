@@ -1,0 +1,4 @@
+#!/bin/bash
+# paths for Google Cloud
+
+[[ -f "$HOME/Projects/google-cloud-sdk/completion.bash.inc" ]] && source "$HOME/Projects/google-cloud-sdk/completion.bash.inc"
