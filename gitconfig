@@ -22,6 +22,7 @@
 	fetch-pr = !"f() { git fetch upstream +refs/pull/$1/head:refs/remotes/origin/pr/$1; }; f"
 	checkout-pr = !"f() { git fetch upstream +refs/pull/$1/head:refs/remotes/origin/pr/$1; git checkout -b pr/$1 origin/pr/$1; }; f"
 	delete-pr = !"f() { git branch -D pr/$1; git branch -Dr origin/pr/$1; }; f"
+	ctags = !.git/hooks/ctags
 	
 [merge]
 	tool = Kaleidoscope
@@ -56,3 +57,5 @@
 [user]
 	email = craig@cottingham.net
 	name = Craig S. Cottingham
+[init]
+	templatedir = ~/.git_template
