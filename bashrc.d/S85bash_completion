@@ -11,3 +11,11 @@ if [[ -d ~/.bash_completion.d ]]; then
     source "$file"
   done
 fi
+
+# load private config files
+# if [[ -d ~/.bash_completion.d-private ]]; then
+#   for file in $(/bin/ls ~/.bash_completion.d-private/S*); do
+#     # echo "loading $file"
+#     source "$file"
+#   done
+# fi
