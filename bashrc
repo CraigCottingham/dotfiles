@@ -20,10 +20,10 @@ export DISABLE_SPRING=1
 # load RVM
 
 # function for switching between multiple RVM installs -- useful for developing RVM
-[[ -r $HOME/.rvm/scripts/functions/developer ]] && . $HOME/.rvm/scripts/functions/developer
+# [[ -r $HOME/.rvm/scripts/functions/developer ]] && . $HOME/.rvm/scripts/functions/developer
 
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
+# [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# [[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
 
 #rvm use `rvm current 2> /dev/null` 2> /dev/null
