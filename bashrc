@@ -10,6 +10,13 @@ if [[ -d ~/.bashrc.d ]]; then
   done
 fi
 
+# load private init files
+if [[ -d ~/.bashrc.d-private ]]; then
+  for file in $(/bin/ls ~/.bashrc.d-private/S*); do
+    source "$file"
+  done
+fi
+
 # load other stuff that hasn't yet been ported to individual init files?
 
 [[ -r /etc/bashrc ]] && . /etc/bashrc
