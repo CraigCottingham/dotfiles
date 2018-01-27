@@ -2,17 +2,17 @@
 # bash tab completion support
 
 if [[ -f /etc/bash_completion ]]; then
-  . /etc/bash_completion
+  source /etc/bash_completion
 fi
 
 if [[ -f $HOME/.bash_completion ]]; then
-  . $HOME/.bash_completion
+  source $HOME/.bash_completion
 fi
 
 # load individual config files
 if [[ -d ~/.bash_completion.d ]]; then
   for file in $(/bin/ls ~/.bash_completion.d/S*); do
     # echo "loading $file"
-    . "$file"
+    source "$file"
   done
 fi

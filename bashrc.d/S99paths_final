@@ -4,4 +4,5 @@
 if [[ -d "$HOME/bin" ]]; then
 	path_prepend PATH $HOME/.dotfiles/bin
 	path_prepend PATH $HOME/bin
+	path_prepend PATH ./bin
 fi

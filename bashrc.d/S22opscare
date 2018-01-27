@@ -1,0 +1,4 @@
+#!/bin/bash
+# paths for OpsCare
+
+[[ -f $HOME/.sentinel/current/bin/sentinel ]] && eval "$($HOME/.sentinel/current/bin/sentinel init -)"
