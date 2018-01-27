@@ -29,7 +29,4 @@ if [[ "`type -p hub`" != "" ]]; then alias git="`type -p hub`"; fi
 
 if [[ "`type -p mono`" != "" ]]; then alias ckan="`type -p mono` ~/Applications/ckan.exe"; fi
 
-if [[ -f "$HOME/bin/open-production" ]]; then alias open-production="$HOME/bin/open-production"; fi
-if [[ -f "$HOME/bin/open-staging" ]]; then alias open-staging="$HOME/bin/open-staging"; fi
-
 # alias sdbdl="curl -o hqsso.sql.gz `sentinel db-dump production --json | jq .db_dump.signed_url | sed -E 's/^\"|\"$//g'`"
